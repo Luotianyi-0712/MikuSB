@@ -1,7 +1,7 @@
 using MikuSB.GameServer.Server.CallGS;
 using MikuSB.Proto;
 
-namespace MikuSB.GameServer.Server.Packet.Recv.Player;
+namespace MikuSB.GameServer.Server.Packet.Recv;
 
 [Opcode(CmdIds.ReqCallGS)]
 public class HandlerReqCallGS : Handler
