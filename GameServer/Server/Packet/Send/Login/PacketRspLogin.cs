@@ -14,7 +14,7 @@ public class PacketRspLogin : BasePacket
             Timestamp = (uint)Extensions.GetUnixSec(),
             WorldChannel = 1,
             AreaId = 1,
-            Data = player.Data.ToProto(),
+            Data = player.ToPlayerProto(),
             NeedRename = false
         };
 

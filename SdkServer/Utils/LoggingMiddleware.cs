@@ -17,7 +17,7 @@ public class RequestLoggingMiddleware(RequestDelegate next)
 
         if (path.StartsWith("/report") || path.Contains("/log/") || path == "/alive")
             return;
-
+        if (!ConfigManager.Config.HttpServer.EnableLog) return;
         if (statusCode == 200)
         {
             logger.Info($"{method} {path} => {statusCode}");

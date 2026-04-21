@@ -15,7 +15,7 @@ public class HandlerNtfSetAttr : Handler
         if (attr != null) attr.Val = req.Val;
         else
         {
-            player.Data.Attrs.Add(new PlayerAttrs
+            player.Data.Attrs.Add(new PlayerAttr
             {
                 Gid = req.Gid,
                 Sid = req.Sid,
