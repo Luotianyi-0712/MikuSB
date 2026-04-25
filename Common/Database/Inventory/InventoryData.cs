@@ -60,11 +60,7 @@ public class GameSkinInfo : BaseGameItemInfo
         {
             Id = UniqueId,
             Template = TemplateId,
-            Count = ItemCount,
-            Enhance = new Enhance
-            {
-                Level = Level
-            }
+            Count = ItemCount
         };
         return proto;
     }

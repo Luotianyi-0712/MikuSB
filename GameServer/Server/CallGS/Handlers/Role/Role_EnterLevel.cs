@@ -9,6 +9,6 @@ public class Role_EnterLevel : ICallGSHandler
     public async Task Handle(Connection connection, string param, ushort seqNo)
     {
         string rsp = $"{{\"tbRet\":{{\"nSeed\":{_random.Next(1, 1000000000)}}}}}";
-        await CallGSRouter.SendScript(connection, "Role_EnterLevel", rsp, seqNo);
+        await CallGSRouter.SendScript(connection, "Role_EnterLevel", rsp);
     }
 }

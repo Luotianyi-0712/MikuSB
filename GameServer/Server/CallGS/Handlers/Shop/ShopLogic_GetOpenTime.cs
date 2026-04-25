@@ -8,6 +8,6 @@ public class ShopLogic_GetOpenTime : ICallGSHandler
     public async Task Handle(Connection connection, string param, ushort seqNo)
     {
         // TODO: return actual shop open times from config
-        await CallGSRouter.SendScript(connection, "ShopLogic_GetOpenTime", "{}", seqNo);
+        await CallGSRouter.SendScript(connection, "ShopLogic_GetOpenTime", "{}");
     }
 }

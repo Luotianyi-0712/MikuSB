@@ -30,7 +30,8 @@ public class CharacterManager(PlayerInstance player) : BasePlayerManager(player)
         var weaponInfo = await Player.InventoryManager!.AddWeaponItem((ItemTypeEnum)CharacterExcel.DefaultWeaponGPDL[0], CharacterExcel.DefaultWeaponGPDL[1], CharacterExcel.DefaultWeaponGPDL[2], (uint)CharacterExcel.DefaultWeaponGPDL[3]);
         if (weaponInfo != null) character.WeaponUniqueId = weaponInfo.UniqueId;
 
-        var skinInfo = await Player.InventoryManager!.AddSkinItem(ItemTypeEnum.TYPE_CARD_SKIN,detail,particular,level);
+        //var skinInfo = await Player.InventoryManager!.AddSkinItem(ItemTypeEnum.TYPE_CARD_SKIN, detail, particular, level);
+        var skinInfo = Player.InventoryManager!.GetSkinItemGDPL(ItemTypeEnum.TYPE_CARD_SKIN, detail, particular, level);
         if (skinInfo != null)
         {
             character.SkinId = skinInfo.UniqueId;
@@ -44,6 +45,11 @@ public class CharacterManager(PlayerInstance player) : BasePlayerManager(player)
     public CharacterInfo? GetCharacter(ulong TemplateId)
     {
         return CharacterData.Characters.Find(Character => Character.TemplateId == TemplateId);
+    }
+
+    public CharacterInfo? GetCharacterByGUID(uint guid)
+    {
+        return CharacterData.Characters.Find(Character => Character.Guid == guid);
     }
 
     public CharacterInfo? GetCharacterGDPL(ItemTypeEnum genre, int detail, int particular)

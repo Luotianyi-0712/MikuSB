@@ -9,6 +9,6 @@ public class Achievement_GetReward : ICallGSHandler
     public async Task Handle(Connection connection, string param, ushort seqNo)
     {
         // TODO: validate achievement completion and grant reward items
-        await CallGSRouter.SendScript(connection, "Achievement_GetReward", "{}", seqNo);
+        await CallGSRouter.SendScript(connection, "Achievement_GetReward", "{}");
     }
 }

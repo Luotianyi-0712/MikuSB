@@ -9,6 +9,6 @@ public class ActivityFace_Update : ICallGSHandler
     public async Task Handle(Connection connection, string param, ushort seqNo)
     {
         // TODO: process face equip/unequip state and return the next face to display
-        await CallGSRouter.SendScript(connection, "ActivityFace_Update", "{\"nFaceId\":0,\"nId\":0,\"nType\":0}", seqNo);
+        await CallGSRouter.SendScript(connection, "ActivityFace_Update", "{\"nFaceId\":0,\"nId\":0,\"nType\":0}");
     }
 }

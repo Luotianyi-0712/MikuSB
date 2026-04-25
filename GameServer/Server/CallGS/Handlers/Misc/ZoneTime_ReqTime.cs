@@ -11,6 +11,6 @@ public class ZoneTime_ReqTime : ICallGSHandler
     {
         var now = Extensions.GetUnixSec();
         var arg = $"{{\"nTime1\":{now},\"nTime2\":{now}}}";
-        await CallGSRouter.SendScript(connection, "ZoneTime_ChangeTime", arg, seqNo);
+        await CallGSRouter.SendScript(connection, "ZoneTime_ChangeTime", arg);
     }
 }

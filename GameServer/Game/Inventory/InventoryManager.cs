@@ -39,9 +39,9 @@ public class InventoryManager(PlayerInstance player) : BasePlayerManager(player)
         return InventoryData.Weapons.Values.FirstOrDefault(x => x.TemplateId == templateId);
     }
 
-    public GameWeaponInfo? GetWeaponItemGDPL(ItemTypeEnum genre, int detail, int particular)
+    public GameWeaponInfo? GetWeaponItemGDPL(ItemTypeEnum genre, uint detail, uint particular, uint level)
     {
-        var templateId = GameResourceTemplateId.FromGdpl((uint)genre, (uint)detail, (uint)particular, 1);
+        var templateId = GameResourceTemplateId.FromGdpl((uint)genre,detail,particular, level);
         return InventoryData.Weapons.Values.FirstOrDefault(x => x.TemplateId == templateId);
     }
 
@@ -74,9 +74,9 @@ public class InventoryManager(PlayerInstance player) : BasePlayerManager(player)
         return InventoryData.Skins.Values.FirstOrDefault(x => x.TemplateId == templateId);
     }
 
-    public GameSkinInfo? GetSkinItemGDPL(ItemTypeEnum genre, int detail, int particular)
+    public GameSkinInfo? GetSkinItemGDPL(ItemTypeEnum genre, uint detail, uint particular, uint level)
     {
-        var templateId = GameResourceTemplateId.FromGdpl((uint)genre, (uint)detail, (uint)particular, 1);
+        var templateId = GameResourceTemplateId.FromGdpl((uint)genre,detail,particular,level);
         return InventoryData.Skins.Values.FirstOrDefault(x => x.TemplateId == templateId);
     }
 }

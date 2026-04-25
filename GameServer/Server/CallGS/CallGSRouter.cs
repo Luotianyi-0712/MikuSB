@@ -38,9 +38,10 @@ public static class CallGSRouter
         Logger.Error($"No handler for CallGS API: {req.Api}");
     }
 
-    public static async Task SendScript(Connection connection, string api, string arg, ushort seqNo = 0)
+    public static async Task SendScript(Connection connection, string api, string arg, NtfSyncPlayer extra = null!)
     {
-        var rsp = new NtfCallScript { Api = api, Arg = arg };
-        await connection.SendPacket(CmdIds.RspCallGS, rsp, seqNo);
+        var rsp = new NtfCallScript { Api = api, Arg = arg, ExtraSync = extra };
+        await connection.SendPacket(CmdIds.NtfScript, rsp);
+        await connection.SendPacket(CmdIds.RspCallGS);
     }
 }

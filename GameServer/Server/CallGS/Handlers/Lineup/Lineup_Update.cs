@@ -5,6 +5,6 @@ public class Lineup_Update : ICallGSHandler
 {
     public async Task Handle(Connection connection, string param, ushort seqNo)
     {
-        await CallGSRouter.SendScript(connection, "UpdateLineup", "{}", seqNo);
+        await CallGSRouter.SendScript(connection, "UpdateLineup", "{}");
     }
 }

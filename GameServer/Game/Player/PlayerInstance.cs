@@ -44,7 +44,18 @@ public class PlayerInstance(PlayerGameData data)
         var t = Task.Run(async () =>
         {
             await InitialPlayerManager();
-            foreach (var card in GameData.CardData.Values) await CharacterManager.AddCharacter((ItemTypeEnum)card.Genre, card.Detail, card.Particular, card.Level);
+            foreach (var skinCard in GameData.CardSkinData.Values)
+            {
+                await InventoryManager.AddSkinItem((ItemTypeEnum)skinCard.Genre, skinCard.Detail, skinCard.Particular, skinCard.Level);
+            }
+            foreach (var weapon in GameData.WeaponData.Values)
+            {
+                await InventoryManager.AddWeaponItem((ItemTypeEnum)weapon.Genre, weapon.Detail, weapon.Particular, weapon.Level);
+            }
+            foreach (var card in GameData.CardData.Values)
+            {
+                await CharacterManager.AddCharacter((ItemTypeEnum)card.Genre, card.Detail, card.Particular, card.Level);
+            }
 
             var bootstrapAttrs = BuildLobbyBootstrapAttrs();
             var existingAttrs = Data.Attrs
@@ -156,8 +167,8 @@ public class PlayerInstance(PlayerGameData data)
             },
         };
 
-        //foreach(var weapon in InventoryManager.InventoryData.Weapons.Values) proto.Items.Add(weapon.ToProto());
-        //foreach (var skin in InventoryManager.InventoryData.Skins.Values) proto.Items.Add(skin.ToProto());
+        foreach (var weapon in InventoryManager.InventoryData.Weapons.Values) proto.Items.Add(weapon.ToProto());
+        foreach (var skin in InventoryManager.InventoryData.Skins.Values) proto.Items.Add(skin.ToProto());
         foreach (var chara in CharacterManager.CharacterData.Characters) proto.Items.Add(chara.ToProto());
 
         foreach (var x in Data.Attrs)
@@ -229,7 +240,7 @@ public class PlayerInstance(PlayerGameData data)
         // Launch.GPASSID = 22 stores pass counts. ChapterLevel.GID = 21 stores star flags.
         // Completing the prologue/early chapter range prevents function conditions from
         // treating the account as a fresh tutorial player.
-        for (uint levelId = 10_000; levelId <= 11_007; levelId++)
+        for (uint levelId = 10_000; levelId <= 10_160; levelId++)
         {
             yield return (21, levelId, 7);
             yield return (22, levelId, 1);

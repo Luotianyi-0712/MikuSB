@@ -8,6 +8,6 @@ public class ReqEntranceGreenLevel : ICallGSHandler
     public async Task Handle(Connection connection, string param, ushort seqNo)
     {
         // TODO: return actual skin green levels from player data
-        await CallGSRouter.SendScript(connection, "ReqEntranceGreenLevel", "[]", seqNo);
+        await CallGSRouter.SendScript(connection, "ReqEntranceGreenLevel", "[]");
     }
 }
