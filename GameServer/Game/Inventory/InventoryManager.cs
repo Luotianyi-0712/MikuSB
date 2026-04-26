@@ -1,4 +1,5 @@
 ﻿using MikuSB.Data;
+using MikuSB.Data.Excel;
 using MikuSB.Database;
 using MikuSB.Database.Inventory;
 using MikuSB.Enums.Item;
@@ -135,5 +136,30 @@ public class InventoryManager(PlayerInstance player) : BasePlayerManager(player)
     {
         var templateId = GameResourceTemplateId.FromGdpl((uint)genre, detail, particular, level);
         return InventoryData.Items.Values.FirstOrDefault(x => x.TemplateId == templateId);
+    }
+
+    public async ValueTask<BaseGameItemInfo?> AddSuppliesItem(SuppliesExcel suppliesData, uint count)
+    {
+        var templateId = GameResourceTemplateId.FromGdpl(suppliesData.Genre, suppliesData.Detail, suppliesData.Particular, suppliesData.Level);
+
+        uint maxCount = suppliesData.GMnum > 0 ? suppliesData.GMnum : 99999;
+        uint giveCount = Math.Min(count, maxCount);
+
+        var existing = InventoryData.Items.Values.FirstOrDefault(x => x.TemplateId == templateId);
+        if (existing != null)
+        {
+            existing.ItemCount = Math.Min(existing.ItemCount + giveCount, maxCount);
+            return existing;
+        }
+
+        var itemInfo = new BaseGameItemInfo
+        {
+            TemplateId = templateId,
+            UniqueId = InventoryData.NextUniqueUid++,
+            Flag = ItemFlagEnum.FLAG_READED,
+            ItemCount = giveCount
+        };
+        InventoryData.Items[itemInfo.UniqueId] = itemInfo;
+        return itemInfo;
     }
 }

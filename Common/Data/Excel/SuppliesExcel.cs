@@ -13,10 +13,12 @@ public class SuppliesExcel : ExcelResource
     [JsonProperty("Color")] public JToken? ColorRaw { get; set; }
     [JsonProperty("ProvideExp")] public JToken? ProvideExpRaw { get; set; }
     [JsonProperty("ConsumeGold")] public JToken? ConsumeGoldRaw { get; set; }
+    [JsonProperty("GMnum")] public JToken? GMnumRaw { get; set; }
 
     [JsonIgnore] public int Color => ReadInt(ColorRaw);
     [JsonIgnore] public uint ProvideExp => ReadUInt(ProvideExpRaw);
     [JsonIgnore] public uint ConsumeGold => ReadUInt(ConsumeGoldRaw);
+    [JsonIgnore] public uint GMnum => ReadUInt(GMnumRaw);
 
     public override uint GetId()
     {

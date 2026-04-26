@@ -69,6 +69,10 @@ public class PlayerInstance(PlayerGameData data)
             {
                 await CharacterManager.AddCharacter((ItemTypeEnum)card.Genre, card.Detail, card.Particular, card.Level);
             }
+            foreach (var supplies in GameData.SuppliesData.Values)
+            {
+                await InventoryManager.AddSuppliesItem(supplies, 90000);
+            }
 
             var selected = CharacterManager.CharacterData.Characters
                 .OrderBy(_ => Guid.NewGuid())
