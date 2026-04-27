@@ -1,6 +1,6 @@
 # MikuSB
 
-Snowbreak: Containment Zone private server reimplementation written in C#.  
+<strong>MikuSB</strong> is a server emulator of a certain dungeon anime game.   
 `SdkServer`, `GameServer`, and an optional local HTTP/HTTPS proxy are started from a single `net9.0` application.  
 
 [Discord](https://discord.gg/aMwCu9JyUR)
@@ -86,7 +86,6 @@ It is not intended for unauthorized access to, interference with, or commercial 
 
 ## Legal Disclaimer
 MikuSB was developed for educational and research purposes.  
-- This project is not affiliated with or endorsed by SEASUN GAMES PTE. LTD.  
 - All trademarks, copyrights, and other intellectual property related to the original game and its associated franchise belong to their respective owners.  
 - This repository does not include any copyrighted game assets, binaries, or master data.  
 - Use this software at your own risk. The authors assume no responsibility for any damages or legal consequences resulting from its use.  
