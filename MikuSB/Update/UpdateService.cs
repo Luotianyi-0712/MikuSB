@@ -13,7 +13,7 @@ public static class UpdateService
     private static readonly Logger Logger = new("Updater");
     private static readonly bool UpdateEnabled = true;
     private static readonly bool AskBeforeUpdate = true;
-    private static readonly string RepositoryOwner = "DevilProMT";
+    private static readonly string RepositoryOwner = "MikuLeaks";
     private static readonly string RepositoryName = "MikuSB";
     private static readonly string AssetName = "MikuSB-win-x64.zip";
     private static readonly int TimeoutSeconds = 5;
