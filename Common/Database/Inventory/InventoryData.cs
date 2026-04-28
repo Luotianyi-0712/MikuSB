@@ -26,24 +26,29 @@ public class BaseGameItemInfo
     public uint ItemCount { get; set; }
     public ItemTypeEnum ItemType { get; set; }
     public ItemFlagEnum Flag { get; set; } = ItemFlagEnum.FLAG_READED;
+    public uint Level { get; set; }
+    public uint Exp { get; set; }
 
     public virtual Item ToProto()
     {
-        return new Item
+        var proto = new Item
         {
             Id = UniqueId,
             Template = TemplateId,
             Count = ItemCount,
             Flag = (uint)Flag
         };
+        if (Level > 0 || Exp > 0)
+            proto.Enhance = new Enhance { Level = Level, Exp = Exp };
+        return proto;
     }
 }
 
 public abstract class GrowableItemInfo : BaseGameItemInfo
 {
     public bool IsLocked { get; set; }
-    public uint Level { get; set; }
-    public uint Exp { get; set; }
+    public new uint Level { get; set; }
+    public new uint Exp { get; set; }
     public uint Break { get; set; }
     public uint EquipAvatarId { get; set; }
 }

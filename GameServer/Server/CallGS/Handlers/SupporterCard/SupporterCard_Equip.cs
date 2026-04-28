@@ -3,7 +3,7 @@ using MikuSB.Proto;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace MikuSB.GameServer.Server.CallGS.Handlers.Girl;
+namespace MikuSB.GameServer.Server.CallGS.Handlers.SupporterCard;
 
 [CallGSApi("SupporterCard_Equip")]
 public class SupporterCard_Equip : ICallGSHandler
