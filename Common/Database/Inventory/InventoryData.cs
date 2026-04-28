@@ -20,6 +20,8 @@ public class InventoryData : BaseDatabaseDataHelper
 
     [SugarColumn(IsJson = true)]
     public Dictionary<uint, GameSupportCardInfo> SupportCards { get; set; } = [];  // Key: UniqueId
+
+    public Dictionary<uint, uint> SkinTypesBySkinId { get; set; } = [];  // Key: nSkinId, Value: client nType
 }
 
 public class BaseGameItemInfo
@@ -88,7 +90,7 @@ public class GameSkinInfo : BaseGameItemInfo
             Count = ItemCount,
             Flag = (uint)Flag,
         };
-        proto.Slots[11] = SkinType;
+        proto.Slots[11] = Math.Min(SkinType, 1);
         return proto;
     }
 }

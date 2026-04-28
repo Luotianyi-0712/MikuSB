@@ -124,6 +124,7 @@ public class CommandTextCHT
     public HelpTextCHT Help { get; } = new();
     public GirlTextCHT Girl { get; } = new();
     public GiveAllTextCHT GiveAll { get; } = new();
+    public DebugTextCHT Debug { get; } = new();
 }
 
 #endregion
@@ -242,6 +243,21 @@ public class GiveAllTextCHT
                            "用法：/giveall card <detail/-1> -p<特定> -l<等級>";
     public string NotFound => "未找到 {0}！";
     public string GiveAllItems => "已向玩家添加 {0} 個 {1}！";
+}
+
+/// <summary>
+///     path: Game.Command.Debug
+/// </summary>
+public class DebugTextCHT
+{
+    public string Desc => "切換調試封包輸出";
+    public string Usage => "用法: /debug [on|off|simple|detail|file]";
+    public string Enabled => "已啟用調試封包輸出。";
+    public string Disabled => "已停用調試封包輸出。";
+    public string SimpleEnabled => "已啟用簡易調試封包輸出。";
+    public string DetailEnabled => "已啟用詳細調試封包輸出。";
+    public string FileEnabled => "個人調試檔案輸出已啟用。";
+    public string FileDisabled => "個人調試檔案輸出已停用。";
 }
 
 #endregion

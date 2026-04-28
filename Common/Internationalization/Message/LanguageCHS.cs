@@ -124,6 +124,7 @@ public class CommandTextCHS
     public HelpTextCHS Help { get; } = new();
     public GirlTextCHS Girl { get; } = new();
     public GiveAllTextCHS GiveAll { get; } = new();
+    public DebugTextCHS Debug { get; } = new();
 }
 
 #endregion
@@ -242,6 +243,21 @@ public class GiveAllTextCHS
                            "用法：/giveall card <detail/-1> -p<特定> -l<等級>";
     public string NotFound => "未找到 {0}！";
     public string GiveAllItems => "已向玩家添加 {0} 个 {1}！";
+}
+
+/// <summary>
+///     path: Game.Command.Debug
+/// </summary>
+public class DebugTextCHS
+{
+    public string Desc => "调试包输出开关";
+    public string Usage => "用法: /debug [on|off|simple|detail|file]";
+    public string Enabled => "已启用调试包输出。";
+    public string Disabled => "已禁用调试包输出。";
+    public string SimpleEnabled => "已启用简单调试包输出。";
+    public string DetailEnabled => "已启用详细调试包输出。";
+    public string FileEnabled => "个人调试文件输出已启用。";
+    public string FileDisabled => "个人调试文件输出已禁用。";
 }
 
 #endregion
