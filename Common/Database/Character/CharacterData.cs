@@ -19,6 +19,7 @@ public class CharacterInfo
     public int Exp { get; set; }
     public uint Break { get; set; }
     public int Evolue { get; set; }
+    public uint ProLevel { get; set; }
     public int Trust { get; set; }
     public uint WeaponUniqueId { get; set; }
     public uint SkinId { get; set; }
@@ -45,6 +46,7 @@ public class CharacterInfo
                 Exp = ToUInt32(Exp),
                 Break = Break,
                 Evolue = ToUInt32(Evolue),
+                ProLevel = ProLevel,
                 Trust = ToUInt32(Trust)
             }
         };
