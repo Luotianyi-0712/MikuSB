@@ -21,6 +21,7 @@ public class InventoryData : BaseDatabaseDataHelper
     [SugarColumn(IsJson = true)]
     public Dictionary<uint, GameSupportCardInfo> SupportCards { get; set; } = [];  // Key: UniqueId
 
+    [SugarColumn(IsJson = true)]
     public Dictionary<uint, uint> SkinTypesBySkinId { get; set; } = [];  // Key: nSkinId, Value: client nType
 }
 
