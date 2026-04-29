@@ -160,9 +160,9 @@ public class PlayerInstance(PlayerGameData data)
             Sender = sendUid,
             Recver = recvUid,
             Emoji = emojiId ?? 0,
-            Text = message ?? "",
+            Text = ChatMessageHelper.NormalizeForClient(message),
             Profile = Data.ToProfileProto(),
-            TimeStamp = (uint)Extensions.GetUnixMs()
+            TimeStamp = ChatMessageHelper.BuildClientTimestamp()
         };
 
         await SendPacket(CmdIds.NtfFriendChat, data);
